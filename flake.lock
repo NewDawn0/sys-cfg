@@ -1,0 +1,117 @@
+{
+  "nodes": {
+    "boot-club": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763050123,
+        "narHash": "sha256-/njfMI3bjnonhiSMZVYzd9ybuoV8jWfvz50X3iQQ0WY=",
+        "owner": "NewDawn0",
+        "repo": "boot-club",
+        "rev": "0c613ccc2501f413713457096afb4f588c7a54ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NewDawn0",
+        "repo": "boot-club",
+        "type": "github"
+      }
+    },
+    "devShells": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763056576,
+        "narHash": "sha256-dbkVnvSJIO4LoBse9F7UoKS/lqfMSJNmdZ8tB9m66kY=",
+        "owner": "NewDawn0",
+        "repo": "devShells.nix",
+        "rev": "cdb76f5d164ce201afccd9e7b9ec4b73b4b58a2f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NewDawn0",
+        "repo": "devShells.nix",
+        "type": "github"
+      }
+    },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762276996,
+        "narHash": "sha256-TtcPgPmp2f0FAnc+DMEw4ardEgv1SGNR3/WFGH0N19M=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "af087d076d3860760b3323f6b583f4d828c1ac17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1748026580,
+        "narHash": "sha256-rWtXrcIzU5wm/C8F9LWvUfBGu5U5E7cFzPYT1pHIJaQ=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "11cb3517b3af6af300dd6c055aeda73c9bf52c48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "boot-club": "boot-club",
+        "devShells": "devShells",
+        "disko": "disko",
+        "nixpkgs": "nixpkgs",
+        "utils": "utils"
+      }
+    },
+    "utils": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763015150,
+        "narHash": "sha256-oozfpD14IEiTMMqr7fNGfzzoBzWJiuNxh2Twnzu1Mkg=",
+        "owner": "NewDawn0",
+        "repo": "nixUtils",
+        "rev": "18a4515bf3be337612c675b5bfb0ce70d04c9c06",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NewDawn0",
+        "repo": "nixUtils",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
