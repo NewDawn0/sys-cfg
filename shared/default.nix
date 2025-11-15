@@ -1,4 +1,3 @@
-{ fn, ... }:
-{
+{fn, ...}: {
   imports = fn.util.importRec ./.;
 }
