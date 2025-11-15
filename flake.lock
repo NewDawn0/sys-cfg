@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763050123,
-        "narHash": "sha256-/njfMI3bjnonhiSMZVYzd9ybuoV8jWfvz50X3iQQ0WY=",
+        "lastModified": 1763130031,
+        "narHash": "sha256-uDhHRvdzIusYEBqmOjfxCLIbCsA0m3RE4Q07TSir8iA=",
         "owner": "NewDawn0",
         "repo": "boot-club",
-        "rev": "0c613ccc2501f413713457096afb4f588c7a54ae",
+        "rev": "3eb07af7ead4e06cca380d533f6d598dff10e19b",
         "type": "github"
       },
       "original": {
@@ -82,12 +82,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1762943920,
+        "narHash": "sha256-ITeH8GBpQTw9457ICZBddQEBjlXMmilML067q0e6vqY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "91c9a64ce2a84e648d0cf9671274bb9c2fb9ba60",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "boot-club": "boot-club",
         "devShells": "devShells",
         "disko": "disko",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "utils": "utils"
       }
     },
