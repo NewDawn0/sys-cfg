@@ -18,11 +18,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "utils";
     };
+    # Quick dev shells per lang
     devShells = {
       url = "github:NewDawn0/devShells.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "utils";
     };
+    # Secrets mgmt
   };
   outputs = args @ {utils, ...}: {
     checks = utils.lib.eachSystem {} (
