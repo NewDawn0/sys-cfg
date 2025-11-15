@@ -2,3 +2,4 @@ cpy/
 flake.nix.bak
 cpy-cpy/
 virt.nix
+secrets/
