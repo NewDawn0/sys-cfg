@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763130031,
-        "narHash": "sha256-uDhHRvdzIusYEBqmOjfxCLIbCsA0m3RE4Q07TSir8iA=",
+        "lastModified": 1763314901,
+        "narHash": "sha256-OIs1Um9VO5O9AsECkfe4oNOHd75jaRrBRrbUPK523xM=",
         "owner": "NewDawn0",
         "repo": "boot-club",
-        "rev": "3eb07af7ead4e06cca380d533f6d598dff10e19b",
+        "rev": "7f5fefc7165e3fba4600615627c14f8aa3fe4e56",
         "type": "github"
       },
       "original": {
