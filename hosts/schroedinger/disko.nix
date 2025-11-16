@@ -28,8 +28,16 @@ in
       partitions = {
         esp = fs.mkESP {};
         swap = fs.mkSwap {size = "32G";};
-        shared = fs.mkShared {size = "400G";};
-        windows = fs.mkWindows {size = "600G";};
+        shared = fs.mkNTFS {
+          size = "500G";
+          name = "shared";
+          zeroPartition = true;
+        };
+        windows = fs.mkNTFS {
+          size = "500G";
+          name = "windows";
+          formatPartition = false;
+        };
         root = fs.mkLuks {
           inherit mainKey passKey;
           content = fs.mkBtrfs {

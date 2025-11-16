@@ -1,4 +1,9 @@
-{
+let
+  optList = var: val:
+    if var
+    then val
+    else [];
+in {
   # Create a btrfs partition
   # @param  attrs     subvolumes          - Subvolumes
   # @param  [str]?    extraArgs           - Extra arguments
@@ -93,18 +98,20 @@
     };
   };
 
-  # Create a shared NTFS partition
+  # Create an NTFS partition
   # @param  str       size                - Size of the partition
-  # @param  str?      name                - Name of the partition
-  # @param  str?      format              - Format of the partition
+  # @param  str       name                - Name of the partition
+  # @param  bool?     zeroPartition       - Whether to zero the partition
+  # @param  bool?     formatPartition     - Whether to format the partition
   # @param  str?      mountpoint          - Mountpoint
   # @param  [str]?    mountOptions        - Mount options
   # @return attrs                         - Partition
-  mkShared = {
+  mkNTFS = {
     size,
-    name ? "shared",
-    format ? "ntfs",
-    mountpoint ? "/shared",
+    name,
+    mountpoint ? "/${name}",
+    zeroPartition ? false,
+    formatPartition ? true,
     mountOptions ? [
       "utf8"
       "gid=100"
@@ -117,10 +124,24 @@
     ],
   }: {
     inherit size name;
-    content = {
-      type = "filesystem";
-      inherit format mountOptions mountpoint;
-    };
+    type = "EBD0A0A2-B9E5-4433-87C0-68B6B72699C7";
+    content =
+      if formatPartition
+      then {
+        inherit mountOptions mountpoint;
+        format = "ntfs";
+        type = "filesystem";
+        extraArgs =
+          [
+            "-C"
+            "4096"
+            "-L"
+            name
+            "--with-uuid"
+          ]
+          ++ (optList zeroPartition ["-f"]);
+      }
+      else {};
   };
 
   # Create a btrfs subvolume at a given mountpoint
@@ -129,8 +150,11 @@
   mkSubvol = mountpoint: {
     inherit mountpoint;
     mountOptions = [
-      "compress=zstd"
+      "compress=zstd:3"
       "noatime"
+      "nodiratime"
+      "space_cache=v2"
+      "ssd"
     ];
   };
 
@@ -148,36 +172,6 @@
     content = {
       inherit randomEncryption resumeDevice;
       type = "swap";
-    };
-  };
-
-  # Create a Windows partition
-  # @param  str       size                - Size of the partition
-  # @param  str?      format              - Format of the partition
-  # @param  str?      mountpoint          - Mountpoint
-  # @param  [str]?    mountOptions        - Mount options
-  # @return attrs                         - Partition
-  mkWindows = {
-    size,
-    format ? "ntfs",
-    mountpoint ? "/windows",
-    mountOptions ? [
-      "ro"
-      "utf8"
-      "gid=100"
-      "uid=1000"
-      "dmask=0022"
-      "fmask=0133"
-      "windows_names"
-      "nofail"
-      "x-systemd.device-timeout=5s"
-    ],
-  }: {
-    inherit size;
-    name = "windows";
-    content = {
-      type = "filesystem";
-      inherit format mountOptions mountpoint;
     };
   };
 }
