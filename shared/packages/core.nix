@@ -1,5 +1,13 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    # System
+    curl
+    gnupg
+    uutils-coreutils-noprefix
+    wget
+    wl-clipboard
+    xdg-utils
+    # Git
     delta
     gh
     git

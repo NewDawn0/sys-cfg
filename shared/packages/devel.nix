@@ -1,19 +1,21 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # Terminal & Multiplexer
-    ghostty
     tmux
+    # Devel
+    jq
+    neovim
+    nurl
+    ripgrep
+    stow
+    trash-cli
     # Shell
+    ani-cli
+    direnv
     eza
     fastfetch
     fzf
-    gnupg
-    jq
-    ripgrep
     starship
-    trash-cli
-    uutils-coreutils-noprefix
-    xdg-utils
     zoxide
   ];
 }
