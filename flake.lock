@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763056576,
-        "narHash": "sha256-dbkVnvSJIO4LoBse9F7UoKS/lqfMSJNmdZ8tB9m66kY=",
+        "lastModified": 1763312861,
+        "narHash": "sha256-WNBDkH00V32E4hQ8mFZbFozZz1w1fjocpymF66utJRY=",
         "owner": "NewDawn0",
         "repo": "devShells.nix",
-        "rev": "cdb76f5d164ce201afccd9e7b9ec4b73b4b58a2f",
+        "rev": "2ee4a55e986c6a79b44d528d8f669c13e454dc0b",
         "type": "github"
       },
       "original": {
@@ -63,6 +63,21 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "flatpak": {
+      "locked": {
+        "lastModified": 1754777568,
+        "narHash": "sha256-0bBqT+3XncgF8F03RFAamw9vdf0VmaDoIJLTGkjfQZs=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "62f636b87ef6050760a8cb325cadb90674d1e23e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
         "type": "github"
       }
     },
@@ -103,6 +118,7 @@
         "boot-club": "boot-club",
         "devShells": "devShells",
         "disko": "disko",
+        "flatpak": "flatpak",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "utils": "utils"

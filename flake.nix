@@ -2,17 +2,20 @@
   description = "NewDawn0's system configurations'";
 
   inputs = {
+    # Nix & Package sources
     nixpkgs.url = "github:nixos/nixpkgs?ref=25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
+    flatpak.url = "github:gmodena/nix-flatpak";
     utils = {
       url = "github:NewDawn0/nixUtils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # System
+    # Disk partitioning
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Themes
     boot-club = {
       url = "github:NewDawn0/boot-club";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,8 +48,8 @@
         };
         modules = [
           args.disko.nixosModules.disko
+          args.flatpak.nixosModules.nix-flatpak
           ./hosts/schroedinger
-          ./mod.nix
           ./shared
         ];
       };
