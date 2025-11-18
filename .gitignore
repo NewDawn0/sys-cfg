@@ -3,3 +3,5 @@ flake.nix.bak
 secrets/
 tmp.sh
 virt.nix
+assets
+aliases.txt
