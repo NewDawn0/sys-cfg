@@ -8,6 +8,7 @@
     hostPlatform = lib.mkDefault "x86_64-linux";
     overlays = with args; [
       boot-club.overlays.default
+      nvim-configured.overlays.default
     ];
   };
   nix = {
@@ -30,11 +31,11 @@
       ];
       substituters = [
         "https://cache.nixos.org/"
-        "https://nix-community.cachix.org"
+        # "https://nix-community.cachix.org"
       ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
+      # trusted-public-keys = [
+      #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      # ];
     };
   };
   # TODO: Readd on next nixos stable update
