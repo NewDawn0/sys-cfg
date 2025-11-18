@@ -1,21 +1,24 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # Terminal & Multiplexer
-    tmux
     # Devel
+    direnv
     jq
-    neovim
+    # neovim
+    file
     nurl
+    nvim-full
     ripgrep
     stow
-    trash-cli
+    tmux
     # Shell
     ani-cli
-    direnv
     eza
     fastfetch
+    fd
     fzf
+    gitui
     starship
+    trash-cli
     zoxide
   ];
 }
