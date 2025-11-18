@@ -101,17 +101,15 @@ in {
   # Create an NTFS partition
   # @param  str       size                - Size of the partition
   # @param  str       name                - Name of the partition
-  # @param  bool?     zeroPartition       - Whether to zero the partition
-  # @param  bool?     formatPartition     - Whether to format the partition
+  # @param  bool?     zero                - Whether to zero the partition
   # @param  str?      mountpoint          - Mountpoint
   # @param  [str]?    mountOptions        - Mount options
   # @return attrs                         - Partition
   mkNTFS = {
     size,
     name,
+    zero ? false,
     mountpoint ? "/${name}",
-    zeroPartition ? false,
-    formatPartition ? true,
     mountOptions ? [
       "utf8"
       "gid=100"
@@ -125,23 +123,18 @@ in {
   }: {
     inherit size name;
     type = "EBD0A0A2-B9E5-4433-87C0-68B6B72699C7";
-    content =
-      if formatPartition
-      then {
-        inherit mountOptions mountpoint;
-        format = "ntfs";
-        type = "filesystem";
-        extraArgs =
-          [
-            "-C"
-            "4096"
-            "-L"
-            name
-            "--with-uuid"
-          ]
-          ++ (optList zeroPartition ["-f"]);
-      }
-      else {};
+    content = {
+      inherit mountOptions mountpoint;
+      format = "ntfs";
+      type = "filesystem";
+      extraArgs =
+        [
+          "-L"
+          name
+          "--with-uuid"
+        ]
+        ++ (optList zero ["-f"]);
+    };
   };
 
   # Create a btrfs subvolume at a given mountpoint

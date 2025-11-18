@@ -31,12 +31,12 @@ in
         shared = fs.mkNTFS {
           size = "500G";
           name = "shared";
-          zeroPartition = true;
+          zero = true;
         };
         windows = fs.mkNTFS {
           size = "500G";
           name = "windows";
-          formatPartition = false;
+          zero = true;
         };
         root = fs.mkLuks {
           inherit mainKey passKey;
