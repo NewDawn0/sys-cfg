@@ -14,7 +14,7 @@
       "usbhid" # USB HID support
       "xhci_pci" # USB 3.0 controller
       # Security
-      "aes_x86_64" # AES Hardware Acceleration
+      "aesni_intel" # AES Hardware Acceleration
       "cryptd" # Async cpu crypto
       "dm_crypt" # Luks encryption
       "sha1_ssse3" # Fast SHA1

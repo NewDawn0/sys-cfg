@@ -1,4 +1,5 @@
-let
+{pkgs, ...}: let
+  shell = pkgs.zsh;
   extraGroups = [
     # Admin access
     "wheel"
@@ -14,11 +15,11 @@ let
 in {
   users.users = {
     dawn = {
-      inherit extraGroups hashedPassword;
+      inherit extraGroups hashedPassword shell;
       isNormalUser = true;
     };
     root = {
-      inherit extraGroups hashedPassword;
+      inherit extraGroups hashedPassword shell;
       isNormalUser = false;
     };
   };

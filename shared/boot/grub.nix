@@ -14,8 +14,8 @@
       theme = pkgs.grubThemes.arcade;
       extraEntries = ''
         menuentry "Shutdown" --class shutdown { halt; }
-        menuentry "Reboot" --class reboot { reboot; }
-        menuentry "Firmware Setup" --class  uefi { fwsetup; }
+        menuentry "Reboot" --class restart { reboot; }
+        menuentry "Firmware Setup" --class  efi { fwsetup; }
       '';
     };
   };
