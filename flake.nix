@@ -10,24 +10,30 @@
       url = "github:NewDawn0/nixUtils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Disk partitioning
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # Themes
+    # Utilities
+    # > Grub 2 themes
     boot-club = {
       url = "github:NewDawn0/boot-club";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "utils";
     };
-    # Quick dev shells per lang
+    # > Quick development environment per language
     devShells = {
       url = "github:NewDawn0/devShells.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "utils";
     };
-    # Secrets mgmt
+    # > Disk partitioning
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # > @TEMP: Configured Neovim
+    nvim-configured = {
+      url = "path:/home/dawn/GitHub/nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # > Secrets management
   };
   outputs = args @ {utils, ...}: {
     checks = utils.lib.eachSystem {} (
