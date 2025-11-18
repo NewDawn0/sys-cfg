@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # Apps
-    evolution
     firefox
     ghostty
     gnomecast
@@ -9,6 +8,7 @@
     keepassxc
     localsend
     spotify
+    thunderbird
     wasistlos
     # Configured
     (discord.override {
