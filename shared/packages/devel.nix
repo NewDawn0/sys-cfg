@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     # Devel
     direnv
@@ -18,6 +19,7 @@
     fzf
     gitui
     starship
+    thefuck
     trash-cli
     zoxide
   ];

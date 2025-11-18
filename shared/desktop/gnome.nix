@@ -1,7 +1,5 @@
 {pkgs, ...}: {
-  services.xserver = {
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.desktopManager.gnome.enable = true;
   # Gnome config
   services.gnome = {
     sushi.enable = true;

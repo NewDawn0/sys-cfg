@@ -5,3 +5,4 @@ tmp.sh
 virt.nix
 assets
 aliases.txt
+shared/desktop/greeter.nix
