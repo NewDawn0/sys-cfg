@@ -64,6 +64,20 @@
             ./shared
           ];
         };
+        shitbox = args.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit args;
+            unstable = args.nixpkgs-unstable.legacyPackages."x86_64-linux";
+            fn = import ./fn { };
+          };
+          modules = [
+            args.disko.nixosModules.disko
+            args.flatpak.nixosModules.nix-flatpak
+            ./hosts/shitbox
+            ./shared
+          ];
+        };
       };
     };
 }
