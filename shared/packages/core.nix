@@ -3,6 +3,8 @@
     # System
     curl
     gnupg
+    killall
+    ncdu
     uutils-coreutils-noprefix
     wget
     wl-clipboard

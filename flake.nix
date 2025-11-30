@@ -35,30 +35,35 @@
     };
     # > Secrets management
   };
-  outputs = args @ {utils, ...}: {
-    checks = utils.lib.eachSystem {} (
-      p:
-        with p; {
+  outputs =
+    args@{ utils, ... }:
+    {
+      checks = utils.lib.eachSystem { } (
+        p: with p; {
           deadnix = pkgs.runCommand "deadnix" {
-            nativeBuildInputs = [pkgs.deadnix];
+            nativeBuildInputs = [ pkgs.deadnix ];
           } "deadnix --fail ${./.} && touch $out";
+          typos = pkgs.runCommand "typos" {
+            nativeBuildInputs = [ pkgs.typos ];
+          } "typos --format brief && touch $out";
         }
-    );
-    formatter = utils.lib.eachSystem {} (p: p.pkgs.alejandra);
-    nixosConfigurations = {
-      schroedinger = args.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit args;
-          fn = import ./fn {};
+      );
+      formatter = utils.lib.eachSystem { } (p: p.pkgs.alejandra);
+      nixosConfigurations = {
+        schroedinger = args.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit args;
+            unstable = args.nixpkgs-unstable.legacyPackages."x86_64-linux";
+            fn = import ./fn { };
+          };
+          modules = [
+            args.disko.nixosModules.disko
+            args.flatpak.nixosModules.nix-flatpak
+            ./hosts/schroedinger
+            ./shared
+          ];
         };
-        modules = [
-          args.disko.nixosModules.disko
-          args.flatpak.nixosModules.nix-flatpak
-          ./hosts/schroedinger
-          ./shared
-        ];
       };
     };
-  };
 }

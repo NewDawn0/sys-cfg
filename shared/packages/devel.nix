@@ -4,23 +4,29 @@
     # Devel
     direnv
     jq
-    # neovim
-    file
     nurl
     nvim-full
     ripgrep
+    tldr
+    typst
+    # neovim
+    ffmpeg
+    file
     stow
     tmux
     # Shell
     ani-cli
+    dipc
     eza
     fastfetch
     fd
     fzf
     gitui
+    mktemp
+    pay-respects
     starship
-    thefuck
     trash-cli
+    typos
     zoxide
   ];
 }

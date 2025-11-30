@@ -7,9 +7,12 @@
     jetbrains.idea-community
     keepassxc
     localsend
+    pavucontrol
     spotify
     thunderbird
+    # vial
     wasistlos
+    zed-editor
     # Configured
     (discord.override {
       withVencord = true;
@@ -27,6 +30,7 @@
   # Dependencies
   programs.java = {
     enable = true;
+    # jdkVersions : 8,11,13,23,24,27
     package = pkgs.jdk24;
   };
 }
